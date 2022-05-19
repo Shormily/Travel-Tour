@@ -1,0 +1,16 @@
+.login-img{
+    background-image:linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.2)), url(../Images/imgu.jpg);
+    height: 300px;
+    padding: 100px;
+}
+.cursor{
+    cursor: pointer;
+}
+
+.box-shadow{
+    box-shadow: 2px 2px 5px black;
+}
+.navslink{
+    text-decoration: none;
+    color: black;
+}

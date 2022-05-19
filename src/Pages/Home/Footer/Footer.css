@@ -1,0 +1,26 @@
+.bg-color{
+    background-color: rgba(3, 3, 3, 0.981);
+}
+.pragraph-weight{
+    font-weight: 600;
+    font-family: 'M PLUS 1', sans-serif;
+}
+.travel-color{
+    color:cornflowerblue;
+}
+.icn{
+    display: inline-block;
+    height:40px;
+    width: 40px;
+    background-color: #ffffff;
+    margin:0 10px 10px 0;
+    text-align: center;
+    line-height:40px;
+    border-radius: 50%;
+    color: #141313;
+    transition:all 0.5s ease;
+}
+.icn:hover{
+    color: #f0f2fa;
+    background: linear-gradient(rgba(17, 50, 186, 0.775),rgb(104, 161, 226));
+}
