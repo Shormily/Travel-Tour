@@ -1,9 +1,10 @@
 import React from "react";
 import "./SignUp.css";
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate, useLocation, } from 'react-router-dom';
 // import useAuth from "../Hook/useAuth";
 import useFirebase from "../Hook/useFirebase";
 import {  useState } from "react"
+import 'animate.css';
 import { createUserWithEmailAndPassword,getAuth,signInWithEmailAndPassword,sendEmailVerification,sendPasswordResetEmail} from 'firebase/auth';
 
 const SignUp = () => {
@@ -14,6 +15,19 @@ const SignUp = () => {
   const [isLogin] = useState(false)
  
 const auth = getAuth()
+
+const navigate = useNavigate();
+    const location = useLocation();
+
+    const hanldeGoogleLogin = () => {
+      signInUsingGoogle(location,navigate)
+        
+       
+    };
+
+
+
+
 
   const handleRegister = e =>{
     e.preventDefault();
@@ -84,7 +98,7 @@ return;
   return (
     <>
       <div className="signup-img"></div>
-      <h1 className='   pragraph-weight  text-center mt-5'><span className="heading-color2">Sign</span>  <span className="heading-color1">Up</span> </h1>
+      <h1 className='   pragraph-weight  text-center mt-5 animate__animated animate__fadeInLeft'><span className="heading-color2">Sign</span>  <span className="heading-color1">Up</span> </h1>
       <div className="container">
         <div className="row">
           <p className="pragraph-weight mb-5 mt-5">
@@ -93,31 +107,31 @@ return;
             you finished the tour.
           </p>
           
-          <div className="col-lg-6 col-md-6 col-sm-12">
-            <p className="pragraph-weight mb-2">UserName*</p>
+          <div className="col-lg-6 col-md-6 col-sm-12 animate__animated animate__fadeInRight">
+            <p className="pragraph-weight mb-2">Name*</p>
             <input
               required
               className=" mb-3 p-3 col-lg-6 col-md-6 col-12 w-75 cursor shadow"
-              placeholder="UserName"
+              placeholder="Name"
               type="text"
             />
-            <p className="pragraph-weight mt-3 mb-2">Password*</p>
+            <p className="pragraph-weight mt-3 mb-2">Email*</p>
+            <input
+              required
+              className=" mb-3 p-3 col-lg-6 col-md-6 col-12 w-75 cursor shadow"
+              placeholder="Email"
+              type="text"
+              onChange={handlePasswordChange}
+            />
+            <p className="pragraph-weight mt-3 mb-2 ">Password*</p>
             <input
               required
               className=" mb-3 p-3 col-lg-6 col-md-6 col-12 w-75 cursor shadow"
               placeholder="Password"
               type="text"
-              onChange={handlePasswordChange}
-            />
-            <p className="pragraph-weight mt-3 mb-2 ">First Name*</p>
-            <input
-              required
-              className=" mb-3 p-3 col-lg-6 col-md-6 col-12 w-75 cursor shadow"
-              placeholder="First Name"
-              type="text"
             />
           </div>
-          <div className="col-lg-6 col-md-6 col-sm-12">
+          <div className="col-lg-6 col-md-6 col-sm-12 animate__animated animate__fadeInRight">
             <p className="pragraph-weight  mb-2">Email*</p>
             <input
               required
@@ -149,7 +163,7 @@ return;
             
           </div>
           <div className="col-lg-6 col-md-6">
-          <p className="btn-color1 text-center cursor pragraph-weight text-light w-75 p-2   mt-2 box-shadow" onClick={signInUsingGoogle}>
+          <p className="btn-color1 text-center cursor pragraph-weight text-light w-75 p-2   mt-2 box-shadow" onClick={hanldeGoogleLogin}>
               Google Sign In
             </p>
 

@@ -19,10 +19,13 @@ const Ticket = () => {
         
            <div className='container '>
            <div className="row ">
-          {products.map((product) => (
+               
+               {products.map((product) => (
               <Product Product product={product} key={product.key}></Product>
             
           ))}
+              
+          
         </div>
            </div>
         </div>

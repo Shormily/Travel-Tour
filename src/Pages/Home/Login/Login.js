@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import useFirebase from '../Hook/useFirebase';
 import {  useState } from "react"
 import { createUserWithEmailAndPassword,getAuth,signInWithEmailAndPassword,sendEmailVerification,sendPasswordResetEmail} from 'firebase/auth';
@@ -14,6 +14,17 @@ const Login = () => {
   const [isLogin] = useState(false)
  
 const auth = getAuth()
+
+const navigate = useNavigate();
+    const location = useLocation();
+
+    const hanldeGoogleLogin = () => {
+      signInUsingGoogle(location,navigate)
+        
+       
+    };
+
+
 
   const handleRegister = e =>{
     e.preventDefault();
@@ -114,7 +125,7 @@ return;
                   <p onClick={handleRegister} className='bg-primary text-center cursor pragraph-weight text-light p-2  mt-4 box-shadow'>SIGN UP</p>
                   <p  className='text-primary pragraph-weight   ' onClick={handleResetPassword}>Forgot Password? </p>
               </div>
-              <div className='col-lg-6 col-md-6 col-lg-12'> <p  onClick={signInUsingGoogle} className='text-dark w-25 pragraph-weight bg-light   p-2 box-shadow cursor'> <i class="fa-brands fa-google text-primary mx-3 fa-2x"></i> Continue With Google</p></div>
+              <div className='col-lg-6 col-md-6 col-lg-12'> <p  onClick={hanldeGoogleLogin} className='text-dark w-25 pragraph-weight bg-light   p-2 box-shadow cursor'> <i class="fa-brands fa-google text-primary mx-3 fa-2x"></i> Continue With Google</p></div>
               <br/>
              
               {/* <div className='col-lg-6 col-md-6 col-lg-12'> <p className='text-light pragraph-weight  w-25 bg-primary p-2 box-shadow  mb-3  cursor'><i class="fa-brands fa-github text-light mx-3 fa-2x"></i> Continue With Github</p></div> */}
